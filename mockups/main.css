@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+html, body {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 15px;
+    height: 100%;
+    margin: 0;
+    background-color: rgb(255, 244, 147);
+}
+
+.container {
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(216, 216, 216, 0.315);
+    transition: 0.3s;
+    border-radius: 5px;
+    min-width: 300px;
+    width: 50%;
+    min-height: 90%;
+    margin: 10px auto;
+    background-color: white;
+}
+
+input[type=text] {
+    background-color: rgb(233, 233, 233);
+    border: none;
+    padding: 7px 15px;
+    border-radius: 15px;
+    font-size: inherit;
+}
+
+input[type=text]:focus {
+    background-color: white;
+    box-shadow: 0 0 0 2pt rgb(153, 172, 235);
+    outline: none;
+}
+
+button, input[type=submit] {
+    color: white;
+    background-color: rgb(67, 67, 255);
+    border-color: rgb(43, 43, 255);
+    border: none;
+    padding: 7px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: inherit;
+}
+
+.sucess {
+    background-color: rgb(72, 155, 72);
+}
+
+button:hover, input[type=submit]:hover {
+    outline: none;
+    cursor: pointer;
+    filter: brightness(85%);
+}
+
+button.block, input[type=submit].block {
+    width: 100%;
+}
+
+div.input-group input[type=text] {
+    border-radius: 10px 0 0 10px;
+    margin-right: 0;
+}
+
+div.input-group input[type=submit] {
+    border-radius: 0 10px 10px 0;
+    margin-left: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+li {
+    padding: 15px 0;
+    background-color: red;
+    padding: 5px;
+    margin: 5px;
+}
+
+.participant-list {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(233, 233, 233);
+    height: 50vh;
+}
