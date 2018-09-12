@@ -8,7 +8,7 @@ html, body {
     background-color: rgb(255, 244, 147);
 }
 
-.container {
+.participants-container {
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(216, 216, 216, 0.315);
     transition: 0.3s;
@@ -79,17 +79,46 @@ table {
     width: 100%;
 }
 
-li {
-    padding: 15px 0;
-    background-color: red;
-    padding: 5px;
-    margin: 5px;
-}
-
 .participant-list {
     margin: 20px 0;
     padding: 10px;
     border-radius: 5px;
     background-color: rgb(233, 233, 233);
     height: 50vh;
+}
+
+.teams-container {
+    padding: 15px 50px;
+    height: 60vh;
+}
+
+.teams {
+    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.team {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(216, 216, 216, 0.315);
+    padding: 0;
+    margin: 10px;
+    flex: 1 0 20%;
+    background-color: rgb(224, 215, 80);
+    height: 100%;
+}
+
+.team h3 {
+    text-align: center;
+}
+
+.team ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    background-color: white;
+    margin: 3px;
+    height: 100%;
+    box-shadow: inset 0 4px 8px 0 rgba(196, 196, 196, 0.637);
 }
