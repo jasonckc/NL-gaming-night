@@ -14,7 +14,7 @@ class App extends React.Component {
         let nbOfTeams = parseInt(props.nbteams, 10);
         this.state = {
             participants: [],
-            teams: new Array(nbOfTeams).fill().map(u => []),
+            teams: [],
             points: new Array(nbOfTeams).fill(0),
 
             screen: 0,
@@ -49,9 +49,9 @@ class App extends React.Component {
 
     makeTeams = () => {
         let participants = this.state.participants.slice();
-        let teams = this.state.teams.slice();        
-
         let nbOfTeams = parseInt(this.props.nbteams, 10);
+        let teams = new Array(nbOfTeams).fill().map(u => []);        
+
         let team = 0;
         while (participants.length > 0) {
             let index = Math.floor(Math.random() * participants.length);
@@ -63,9 +63,9 @@ class App extends React.Component {
         this.setState({teams: teams});
     }
 
-    updateTeamPoints = (team, evt) => {
+    updateTeamPoints = (team, points) => {
         let pointsToAdd = this.state.pointsToAdd.slice();
-        pointsToAdd[team] = parseInt(evt.target.value, 10);
+        pointsToAdd[team] = parseInt(points, 10);
         this.setState({pointsToAdd: pointsToAdd});
     }
 
@@ -116,6 +116,7 @@ class App extends React.Component {
                 return (
                     <Teams
                         teams={this.state.teams}
+                        prev={() => this.setScreen(0)}
                         next={() => this.setScreen(2)}
                     />
                 );
@@ -123,7 +124,7 @@ class App extends React.Component {
                 return (
                     <Game
                         nbteams={this.props.nbteams}
-                        update={(team, evt) => this.updateTeamPoints(team, evt)}
+                        update={(team, evt) => this.updateTeamPoints(team, evt.target.value)}
                         next={() => this.setScreen(3)}
                     />
                 );

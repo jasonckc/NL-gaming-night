@@ -6,7 +6,7 @@ class Participants extends Component {
             (name, i) => 
                 <li key={i}>
                     {name}
-                    <button onClick={this.props.remove.bind(this, i)}>Reset</button>
+                    <button onClick={this.props.remove.bind(this, i)}>Delete</button>
                 </li>
                 
             
