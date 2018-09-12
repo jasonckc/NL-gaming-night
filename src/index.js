@@ -107,8 +107,8 @@ class App extends React.Component {
         };
     }
 
-    updateParticipant(evt) {
-        this.setState({participant: evt.target.value})
+    updateParticipant(name) {
+        this.setState({participant: name})
     }
 
     addParticipant() {
@@ -143,9 +143,9 @@ class App extends React.Component {
         this.setState({teams: teams});
     }
 
-    updateTeamPoints(team, evt) {
+    updateTeamPoints(team, points) {
         let pointsToAdd = this.state.pointsToAdd.slice();
-        pointsToAdd[team] = parseInt(evt.target.value, 10);
+        pointsToAdd[team] = parseInt(points, 10);
         this.setState({pointsToAdd: pointsToAdd});
     }
 
@@ -185,7 +185,7 @@ class App extends React.Component {
                 return (
                     <Participants
                         participants={this.state.participants}
-                        update={evt => this.updateParticipant(evt)}
+                        update={evt => this.updateParticipant(evt.target.value)}
                         add={() => this.addParticipant()}
                         remove={i => this.removeParticipant(i)}
                         next={() => this.setScreen(1)}
@@ -202,7 +202,7 @@ class App extends React.Component {
                 return (
                     <Game
                         nbteams={this.props.nbteams}
-                        update={(team, evt) => this.updateTeamPoints(team, evt)}
+                        update={(team, evt) => this.updateTeamPoints(team, evt.target.value)}
                         next={() => this.setScreen(3)}
                     />
                 );
