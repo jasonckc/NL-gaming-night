@@ -20,9 +20,13 @@ function Participants(props) {
 function Teams(props) {
     let teams = props.teams.map(
         (members, i) => {
+            if (members.length === 0)
+                return (<div key={i}></div>);
+
             let membersLst = members.map(
                 (name, j) => <li key={j}>{name}</li>
             );
+            
             return (
                 <div key={i}>
                     <h3>Team {i + 1}</h3>
@@ -35,6 +39,7 @@ function Teams(props) {
         <div>
             <h1>Teams</h1>
             {teams}
+            <button onClick={props.prev}>Previous</button>
             <button onClick={props.next}>Next</button>
         </div>
     );
@@ -98,7 +103,7 @@ class App extends React.Component {
         let nbOfTeams = parseInt(props.nbteams, 10);
         this.state = {
             participants: [],
-            teams: new Array(nbOfTeams).fill().map(u => []),
+            teams: [],
             points: new Array(nbOfTeams).fill(0),
 
             screen: 0,
@@ -129,9 +134,9 @@ class App extends React.Component {
 
     makeTeams() {
         let participants = this.state.participants.slice();
-        let teams = this.state.teams.slice();        
-
         let nbOfTeams = parseInt(this.props.nbteams, 10);
+        let teams = new Array(nbOfTeams).fill().map(u => []);        
+
         let team = 0;
         while (participants.length > 0) {
             let index = Math.floor(Math.random() * participants.length);
@@ -195,6 +200,7 @@ class App extends React.Component {
                 return (
                     <Teams
                         teams={this.state.teams}
+                        prev={() => this.setScreen(0)}
                         next={() => this.setScreen(2)}
                     />
                 );
