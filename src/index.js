@@ -1,95 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
 
-function Participants(props) {
-    let participants = props.participants.map(
-        (name, i) => <li key={i}>{name}</li>
-    );
-    return (
-        <div>
-            <h1>Participants</h1>
-            <input type="text" onChange={props.update}></input>
-            <button onClick={props.add}>Add</button>
-            <ul>{participants}</ul>
-            <button onClick={props.next}>Next</button>
-        </div>
-    );
-}
-
-function Teams(props) {
-    let teams = props.teams.map(
-        (members, i) => {
-            let membersLst = members.map(
-                (name, j) => <li key={j}>{name}</li>
-            );
-            return (
-                <div key={i}>
-                    <h3>Team {i + 1}</h3>
-                    <ul>{membersLst}</ul>
-                </div>
-            );
-        }
-    );
-    return (
-        <div>
-            <h1>Teams</h1>
-            {teams}
-            <button onClick={props.next}>Next</button>
-        </div>
-    );
-}
-
-function Game(props) {
-    let teams = [];
-    for (let i = 0; i < props.nbteams; i++) {
-        teams.push(
-            <tr key={i}>
-                <td>
-                    <h4>Team {i + 1}</h4>
-                </td>
-                <td>
-                    <input
-                        type="number"
-                        onChange={evt => props.update(i, evt)}>
-                    </input>
-                </td>
-            </tr>
-        );
-    }
-
-    return (
-        <div>
-            <h1>Game</h1>
-            <table><tbody>{teams}</tbody></table>
-            <button onClick={props.next}>Next</button>
-        </div>
-    );
-}
-
-function Ranking(props) {
-    let teams = [];
-    let points = props.points.slice();
-    for (let i = 0; i < points.length; i++) {
-        let maxIndex = points.reduce((max, x, i, arr) => x > arr[max] ? i : max, 0);
-        teams.push(
-            <tr key={i}>
-                <td><h4>Team {maxIndex + 1}</h4></td>
-                <td>{points[maxIndex].toString()} points</td>
-            </tr>
-        );
-        points[maxIndex] = Number.MIN_SAFE_INTEGER;
-    }
-
-    return (
-        <div>
-            <h1>Ranking</h1>
-            <table><tbody>{teams}</tbody></table>
-            <button onClick={props.next}>Next</button>
-        </div>
-
-    );
-}
+import Game from './Components/game';
+import Participants from './Components/participants';
+import Ranking from './Components/ranking';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Teams from './Components/teams';
 
 class App extends React.Component {
     constructor(props) {
@@ -107,11 +23,15 @@ class App extends React.Component {
         };
     }
 
-    updateParticipant(evt) {
-        this.setState({participant: evt.target.value})
+    updateParticipant = (evt) => {
+        const nextState = {
+            ...this.state, 
+            participant: evt.target.value
+        };
+        this.setState(nextState);
     }
 
-    addParticipant() {
+    addParticipant = () => {
         if (this.state.participant !== "") {
             let participants = this.state.participants.slice();
             participants.push(this.state.participant);
@@ -119,7 +39,7 @@ class App extends React.Component {
         }
     }
 
-    removeParticipant(index) {
+    removeParticipant = (index) => {
         if (index != null) {
             let participants = this.state.participants.slice();
             participants.splice(index, 1);
@@ -127,7 +47,7 @@ class App extends React.Component {
         }
     }
 
-    makeTeams() {
+    makeTeams = () => {
         let participants = this.state.participants.slice();
         let teams = this.state.teams.slice();        
 
@@ -143,13 +63,13 @@ class App extends React.Component {
         this.setState({teams: teams});
     }
 
-    updateTeamPoints(team, evt) {
+    updateTeamPoints = (team, evt) => {
         let pointsToAdd = this.state.pointsToAdd.slice();
         pointsToAdd[team] = parseInt(evt.target.value, 10);
         this.setState({pointsToAdd: pointsToAdd});
     }
 
-    commitTeamPoints() {
+    commitTeamPoints = () => {
         let nbOfTeams = parseInt(this.props.nbteams, 10);
         let points = this.state.points.map(
             (points, i) => points + this.state.pointsToAdd[i]
@@ -160,7 +80,7 @@ class App extends React.Component {
         });
     }
 
-    setScreen(id) {
+    setScreen = (id) => {
         switch (id) {
             case 1:
                 this.makeTeams();
@@ -185,6 +105,7 @@ class App extends React.Component {
                 return (
                     <Participants
                         participants={this.state.participants}
+                        participant={this.state.participant}
                         update={evt => this.updateParticipant(evt)}
                         add={() => this.addParticipant()}
                         remove={i => this.removeParticipant(i)}
