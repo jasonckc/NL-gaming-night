@@ -20,6 +20,7 @@ class Teams extends Component {
             <div>
                 <h1>Teams</h1>
                 {teams}
+                <button onClick={this.props.back}>Back</button>
                 <button onClick={this.props.next}>Next</button>
             </div>
         );

@@ -117,7 +117,7 @@ class App extends React.Component {
                 return (
                     <Teams
                         teams={this.state.teams}
-                        prev={() => this.setScreen(0)}
+                        back={() => this.setScreen(0)}
                         next={() => this.setScreen(2)}
                     />
                 );
