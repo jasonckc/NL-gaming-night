@@ -1,0 +1,48 @@
+div.participants-wrapper {
+    height: 100%;
+    width: 50%;
+    min-width: 300px;
+    margin: auto;
+}
+
+h1.participants-title {
+    text-align: center;
+}
+
+ul.participants-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 10px;
+    height: 60vh;
+    overflow: auto;
+    max-width: 100%;
+    background-color: white;
+    border: 1px solid rgb(243, 243, 243);
+    border-radius: 3px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19)
+}
+
+ul.participants-list li {
+    padding: 5px 0;
+    width: 250px;
+}
+
+ul.participants-list li span {
+    margin-left: 5px;
+}
+
+button.participants-btn-add {
+    background-color: rgb(93, 145, 102);
+    color: white;
+}
+
+button.participants-btn-remove {
+    background-color: rgb(255, 91, 91);
+    color: white;
+}
+
+button.participants-btn-next {
+    background-color: rgb(125, 97, 172);
+    color: white;
+    width: 100%;
+}

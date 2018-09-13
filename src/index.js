@@ -1,11 +1,12 @@
 import './index.css';
+import './icons.js'
 
 import Game from './Components/game';
 import Participants from './Components/participants';
 import Ranking from './Components/ranking';
+import Teams from './Components/teams';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Teams from './Components/teams';
 
 class App extends React.Component {
     constructor(props) {
