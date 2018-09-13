@@ -4,6 +4,12 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import './participants.css';
 
 class Participants extends Component {
+    handleKeyPress = (evt) => {
+        if (evt.key === 'Enter') {
+            this.props.add(evt);
+        }
+    }
+
     render() {
         let participants = this.props.participants.map(
             (name, i) => 
@@ -24,6 +30,7 @@ class Participants extends Component {
                 <input 
                     type="text"
                     onChange={this.props.update}
+                    onKeyPress={this.handleKeyPress}
                     value={this.props.participant}
                     placeholder="Name..."
                 >
