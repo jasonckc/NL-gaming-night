@@ -4,6 +4,9 @@ class Teams extends Component {
     render() {
         let teams = this.props.teams.map(
             (members, i) => {
+                if (members.length === 0)
+                    return (<div></div>) 
+
                 let membersLst = members.map(
                     (name, j) => <li key={j}>{name}</li>
                 );
