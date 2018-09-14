@@ -14,14 +14,16 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
+        // Load variables from props
+        let nbteams = parseInt(props.nbteams, 10);
+
         // Load saved state variables from cookies
         let participants = Serializer.load('participants', [], val => val.split(';'));
         let teams = Serializer.load('teams', [], val => val.split(";").map(team => team.split(":")));
-        let points = Serializer.load('points', new Array(nbOfTeams).fill(0), val => val.split(';'));
+        let points = Serializer.load('points', new Array(nbteams).fill(0), val => val.split(';'));
         let screen = Serializer.load('screen', 0, val => parseInt(val, 10));
 
         // Define state
-        let nbOfTeams = parseInt(props.nbteams, 10);
         this.state = {
             participants: participants,
             teams: teams,
@@ -29,7 +31,7 @@ class App extends React.Component {
             screen: screen,
 
             participant: '',
-            pointsToAdd: new Array(nbOfTeams).fill(0),
+            pointsToAdd: new Array(nbteams).fill(0),
         };
     }
 
@@ -78,15 +80,15 @@ class App extends React.Component {
         }
 
         let participants = this.state.participants.slice();
-        let nbOfTeams = parseInt(this.props.nbteams, 10);
-        let teams = new Array(nbOfTeams).fill().map(u => []);        
+        let nbteams = parseInt(this.props.nbteams, 10);
+        let teams = new Array(nbteams).fill().map(u => []);        
 
         let team = 0;
         while (participants.length > 0) {
             let index = Math.floor(Math.random() * participants.length);
             teams[team].push(participants[index]);
             participants.splice(index, 1);
-            team = (team + 1) % nbOfTeams;
+            team = (team + 1) % nbteams;
         }
 
         this.setState({teams: teams});
@@ -100,13 +102,13 @@ class App extends React.Component {
     }
 
     commitTeamPoints = () => {
-        let nbOfTeams = parseInt(this.props.nbteams, 10);
+        let nbteams = parseInt(this.props.nbteams, 10);
         let points = this.state.points.map(
             (points, i) => points + this.state.pointsToAdd[i]
         );
         this.setState({
             points: points,
-            pointsToAdd: new Array(nbOfTeams).fill(0)
+            pointsToAdd: new Array(nbteams).fill(0)
         });
         Serializer.save('points', points.join(';'));
     }
