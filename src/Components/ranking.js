@@ -16,7 +16,7 @@ class ranking extends Component {
             points[maxIndex] = Number.MIN_SAFE_INTEGER;
         }
         return (
-            <div className="ranking-bg">
+            <div className="background ranking-bg">
                 <div className="ranking-wrapper">
                     <h1 className="ranking-title">Ranking</h1>
                     <div className="ranking-content">

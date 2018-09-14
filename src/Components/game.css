@@ -1,8 +1,24 @@
+div.game-bg {
+    background-color: rgb(255, 214, 79);
+    color: white;
+}
+
 div.game-wrapper {
     height: 100%;
     width: 50%;
     min-width: 300px;
     margin: auto;
+}
+
+div.game-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(207, 163, 68, 0.945);
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 20%;
 }
 
 h1.game-title {
