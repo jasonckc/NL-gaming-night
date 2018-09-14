@@ -1,7 +1,18 @@
+div.ranking-bg {
+    background-color: rgba(186, 223, 128, 0.877);
+    color: rgb(255, 255, 255);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
 div.ranking-wrapper {
     height: 100%;
     width: 100%;
-    min-width: 600px;
+    min-width: 300px;
     margin: auto;
 }
 
@@ -10,7 +21,10 @@ div.ranking-content {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: rgba(246, 175, 20, 0.623);
+    background-color: rgba(148, 180, 43, 0.945);
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 20%;
 }
 
 h1.ranking-title {
@@ -19,8 +33,9 @@ h1.ranking-title {
 }
 
 table.ranking-table {
-    width: 40%;
+    width: 60%;
     margin: 0 30%;
+    padding: 40px; 
 }
 
 table.ranking-table tr {
@@ -37,7 +52,7 @@ table.ranking-table tr td {
 }
 
 table.ranking-table tr td:hover{
-    background-color: #fff;
+    background-color: rgb(247, 252, 240);
     color: #000;
     border-radius: 12px;
 }
@@ -57,9 +72,10 @@ div.ranking-footer {
 
 
 button.ranking-btn-next {
-    background-color: rgb(125, 97, 172);
+    background-color: rgba(99, 28, 28, 0.685);
     color: white;
-    width: 40%;
+    width: 60%;
+    padding: 10px 0;
 }
 
 small.ranking-btn-restart {

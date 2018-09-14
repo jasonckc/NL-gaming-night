@@ -16,14 +16,16 @@ class ranking extends Component {
             points[maxIndex] = Number.MIN_SAFE_INTEGER;
         }
         return (
-            <div className="ranking-wrapper">
-                <h1 className="ranking-title">Ranking</h1>
-                <div className="ranking-content">
-                    <table className="ranking-table"><tbody>{teams}</tbody></table>
-                    <div className="ranking-footer">
-                        <button className="ranking-btn-next" onClick={this.props.next}>Next</button>
+            <div className="ranking-bg">
+                <div className="ranking-wrapper">
+                    <h1 className="ranking-title">Ranking</h1>
+                    <div className="ranking-content">
+                        <table className="ranking-table"><tbody>{teams}</tbody></table>
+                        <div className="ranking-footer">
+                            <button className="ranking-btn-next" onClick={this.props.next}>Next</button>
+                        </div>
+                        <small className="ranking-btn-restart" onClick={this.props.restart}>Restart</small>
                     </div>
-                    <small className="ranking-btn-restart" onClick={this.props.restart}>Restart</small>
                 </div>
             </div>
         );
