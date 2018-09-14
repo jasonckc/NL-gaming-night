@@ -15,7 +15,7 @@ class Participants extends Component {
             (name, i) => 
                 <li key={i}>
                     <button
-                        class="participants-btn-remove"
+                        className="participants-btn-remove"
                         onClick={this.props.remove.bind(this, i)}
                     >
                         <FontAwesomeIcon icon="user-minus" />
@@ -25,8 +25,8 @@ class Participants extends Component {
         );
 
         return (
-            <div class="participants-wrapper">
-                <h1 class="participants-title">Participants</h1>
+            <div className="participants-wrapper">
+                <h1 className="participants-title">Participants</h1>
                 <input 
                     type="text"
                     onChange={this.props.update}
@@ -36,14 +36,14 @@ class Participants extends Component {
                 >
                 </input>
                 <button
-                    class="participants-btn-add"
+                    className="participants-btn-add"
                     onClick={this.props.add}
                 >
                     Add
                 </button>
-                <ul class="participants-list">{participants}</ul>
+                <ul className="participants-list">{participants}</ul>
                 <button
-                    class="participants-btn-next"
+                    className="participants-btn-next"
                     onClick={this.props.next}
                 >
                     Next
