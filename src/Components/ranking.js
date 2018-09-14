@@ -19,6 +19,7 @@ class ranking extends Component {
                 <h1>Ranking</h1>
                 <table><tbody>{teams}</tbody></table>
                 <button onClick={this.props.next}>Next</button>
+                <small onClick={this.props.restart}>Restart</small>
             </div>
         );
     }

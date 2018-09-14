@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './teams.css'
+
 class Teams extends Component {
     render() {
         let teams = this.props.teams.map(
@@ -11,7 +13,7 @@ class Teams extends Component {
                     (name, j) => <li key={j}>{name}</li>
                 );
                 return (
-                    <div key={i}>
+                    <div class="teams-team" key={i}>
                         <h3>Team {i + 1}</h3>
                         <ul>{membersLst}</ul>
                     </div>
