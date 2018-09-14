@@ -35,11 +35,14 @@ class App extends React.Component {
         };
     }
 
-    reset = () => {
-        Serializer.unset('participants');
+    reset = (keepParticipants = true) => {
         Serializer.unset('teams');
         Serializer.unset('points');
         Serializer.unset('screen');
+
+        if (!keepParticipants) {
+            Serializer.unset('participants');
+        }
         
         window.location.reload();
     }
