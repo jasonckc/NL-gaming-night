@@ -23,7 +23,7 @@ class Teams extends Component {
         );
 
         return (
-            <div className="teams-bg">
+            <div className="teams-bg background">
                 <div className="teams-wrapper">
                     <h1 className="teams-title">Teams</h1>
                     <button

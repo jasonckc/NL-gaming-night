@@ -25,7 +25,7 @@ class Participants extends Component {
         );
 
         return (
-            <div className="participants-bg">
+            <div className="participants-bg background">
                 <div className="participants-wrapper">
                     <h1 className="participants-title">Participants</h1>
                     <input 
