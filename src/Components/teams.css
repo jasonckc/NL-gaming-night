@@ -1,0 +1,67 @@
+div.teams-bg {
+    background-color: rgb(121, 121, 252);
+    color: white;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+div.teams-wrapper {
+    height: 100%;
+    width: 90%;
+    min-width: 300px;
+    margin: auto;
+}
+
+h1.teams-title {
+    text-align: center;
+}
+
+button.teams-btn-refresh {
+    background-color: rgb(96, 78, 199);
+    color: white;
+}
+
+div.teams-teams {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+div.teams-team {
+    padding: 0;
+    margin: 5px;
+    border-radius: 5px;
+    flex: 1 0 20%;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.199);
+    height: 100%;
+}
+
+div.teams-team h3 {
+    padding: 10px;
+    margin: 0;
+    background-color: rgb(48, 47, 160);
+    border-bottom: 3px solid rgba(0,0,0, 0.25);
+    border-radius: 3px 3px 0 0;
+}
+
+div.teams-team ul {
+    list-style: none;
+    padding: 10px;
+    background: white;
+    color: black;
+    margin: 0;
+    border: 1px solid rgb(204, 204, 204);
+    height: 100%;
+}
+
+button.teams-btn-back {
+    background-color: rgb(110, 191, 216);
+}
+
+button.teams-btn-next {
+    background-color: rgb(146, 161, 12);
+}

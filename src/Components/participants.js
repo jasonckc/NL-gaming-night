@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import './participants.css';
 
@@ -25,29 +25,31 @@ class Participants extends Component {
         );
 
         return (
-            <div className="participants-wrapper">
-                <h1 className="participants-title">Participants</h1>
-                <input 
-                    type="text"
-                    onChange={this.props.update}
-                    onKeyPress={this.handleKeyPress}
-                    value={this.props.participant}
-                    placeholder="Name..."
-                >
-                </input>
-                <button
-                    className="participants-btn-add"
-                    onClick={this.props.add}
-                >
-                    Add
-                </button>
-                <ul className="participants-list">{participants}</ul>
-                <button
-                    className="participants-btn-next"
-                    onClick={this.props.next}
-                >
-                    Next
-                </button>
+            <div className="participants-bg">
+                <div className="participants-wrapper">
+                    <h1 className="participants-title">Participants</h1>
+                    <input 
+                        type="text"
+                        onChange={this.props.update}
+                        onKeyPress={this.handleKeyPress}
+                        value={this.props.participant}
+                        placeholder="Name..."
+                    >
+                    </input>
+                    <button
+                        className="participants-btn-add"
+                        onClick={this.props.add}
+                    >
+                        Add
+                    </button>
+                    <ul className="participants-list">{participants}</ul>
+                    <button
+                        className="participants-btn-next"
+                        onClick={this.props.next}
+                    >
+                        Next
+                    </button>
+                </div>
             </div>
         );
     }

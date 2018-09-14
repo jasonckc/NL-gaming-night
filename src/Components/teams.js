@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import './teams.css'
 
@@ -13,7 +14,7 @@ class Teams extends Component {
                     (name, j) => <li key={j}>{name}</li>
                 );
                 return (
-                    <div class="teams-team" key={i}>
+                    <div className="teams-team" key={i}>
                         <h3>Team {i + 1}</h3>
                         <ul>{membersLst}</ul>
                     </div>
@@ -22,12 +23,29 @@ class Teams extends Component {
         );
 
         return (
-            <div>
-                <h1>Teams</h1>
-                <button onClick={this.props.refresh}>Refresh</button>
-                {teams}
-                <button onClick={this.props.back}>Back</button>
-                <button onClick={this.props.next}>Next</button>
+            <div className="teams-bg">
+                <div className="teams-wrapper">
+                    <h1 className="teams-title">Teams</h1>
+                    <button
+                        className="teams-btn-refresh"
+                        onClick={this.props.refresh}
+                    >
+                        <FontAwesomeIcon icon="redo-alt" />
+                    </button>
+                    <div className="teams-teams">{teams}</div>
+                    <button
+                        className="teams-btn-back"
+                        onClick={this.props.back}
+                    >
+                        Back
+                    </button>
+                    <button
+                        className="teams-btn-next"
+                        onClick={this.props.next}
+                    >
+                        Next
+                    </button>
+                </div>
             </div>
         );
     }
