@@ -73,11 +73,7 @@ class App extends React.Component {
         }
     }
 
-    makeTeams = (force = false) => {
-        if (!force && this.state.teams.length > 0) {
-            return;
-        }
-
+    makeTeams = () => {
         let participants = this.state.participants.slice();
         let nbteams = parseInt(this.props.nbteams, 10);
         let teams = new Array(nbteams).fill().map(u => []);        
@@ -152,7 +148,7 @@ class App extends React.Component {
                 return (
                     <Teams
                         teams={this.state.teams}
-                        refresh={() => this.makeTeams(true)}
+                        refresh={() => this.makeTeams()}
                         back={() => this.setScreen(0)}
                         next={() => this.setScreen(2)}
                     />
