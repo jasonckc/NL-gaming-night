@@ -69,7 +69,6 @@ class App extends React.Component {
             let participants = this.state.participants.slice();
             participants.splice(index, 1);
             this.setState({participants: participants});
-            this.saveState();
             Serializer.save('participants', participants.join(';'));
         }
     }
