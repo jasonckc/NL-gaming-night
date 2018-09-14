@@ -1,0 +1,11 @@
+div.game-wrapper {
+    height: 100%;
+    width: 50%;
+    min-width: 300px;
+    margin: auto;
+}
+
+h1.game-title {
+    text-align: center;
+    letter-spacing: 1px;
+}

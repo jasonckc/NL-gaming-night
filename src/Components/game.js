@@ -1,3 +1,5 @@
+import './game.css'
+
 import React, { Component } from 'react';
 
 class Game extends Component {
@@ -19,8 +21,8 @@ class Game extends Component {
             );
         }
         return (
-            <div>
-                <h1>Game</h1>
+            <div className="game-wrapper">
+                <h1 className="game-title">Game</h1>
                 <table><tbody>{teams}</tbody></table>
                 <button onClick={this.props.next}>Next</button>
             </div>
