@@ -24,6 +24,7 @@ class Teams extends Component {
         return (
             <div>
                 <h1>Teams</h1>
+                <button onClick={this.props.refresh}>Refresh</button>
                 {teams}
                 <button onClick={this.props.back}>Back</button>
                 <button onClick={this.props.next}>Next</button>
