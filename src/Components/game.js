@@ -24,7 +24,11 @@ class Game extends Component {
             <div className="background game-bg">
                 <div className="game-wrapper">
                     <h1 className="game-title">Game</h1>
-                    <div className="game-content"><table><tbody>{teams}</tbody></table></div>
+                    <div className="game-content">
+                        <table className="game-table">
+                            <tbody>{teams}</tbody>
+                        </table>
+                    </div>
                     <button onClick={this.props.next}>Next</button>
                 </div>
             </div>
