@@ -26,25 +26,31 @@ class Teams extends Component {
             <div className="teams-bg background">
                 <div className="teams-wrapper">
                     <h1 className="teams-title">Teams</h1>
-                    <button
-                        className="teams-btn-refresh"
-                        onClick={this.props.refresh}
-                    >
-                        <FontAwesomeIcon icon="redo-alt" />
-                    </button>
                     <div className="teams-teams">{teams}</div>
-                    <button
-                        className="teams-btn-back"
-                        onClick={this.props.back}
-                    >
-                        Back
-                    </button>
-                    <button
-                        className="teams-btn-next"
-                        onClick={this.props.next}
-                    >
-                        Start!
-                    </button>
+                    <div className="teams-bottom">
+                        <div className="teams-bottom-left">
+                            <button
+                                className="teams-btn-refresh"
+                                onClick={this.props.refresh}
+                            >
+                                <FontAwesomeIcon icon="redo-alt" />
+                            </button>
+                        </div>
+                        <div className="teams-bottom-right">
+                            <button
+                                className="teams-btn-back"
+                                onClick={this.props.back}
+                            >
+                                Back
+                            </button>
+                            <button
+                                className="teams-btn-next"
+                                onClick={this.props.next}
+                            >
+                                Start!
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

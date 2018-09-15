@@ -1,13 +1,17 @@
 div.teams-bg {
     background-color: rgb(121, 121, 252);
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div.teams-wrapper {
-    height: 100%;
+    height: 90%;
     width: 70%;
     min-width: 350px;
     margin: auto;
+    position: relative;
 }
 
 h1.teams-title {
@@ -50,6 +54,20 @@ div.teams-team ul {
     margin: 0;
     border: 1px solid rgb(204, 204, 204);
     height: 100%;
+}
+
+div.teams-bottom {
+    width: 100%;
+    position: absolute; 
+    bottom: 0;
+}
+
+div.teams-bottom-left {
+    float: left;
+}
+
+div.teams-bottom-right {
+    float: right;
 }
 
 button.teams-btn-back {
