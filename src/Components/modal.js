@@ -18,6 +18,9 @@ class Modal extends Component {
                         onClick={(e) => {e.stopPropagation()}}
                     >
                         {this.props.onSetContent()}
+                        <div className="modal-footer">
+                            Click outside of the modal to close.
+                        </div>
                     </div>
                 </div>
             </div>
