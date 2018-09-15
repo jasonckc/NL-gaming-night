@@ -4,11 +4,10 @@ import './icons.js'
 import Game from './Components/game';
 import Participants from './Components/participants';
 import Ranking from './Components/ranking';
-import Teams from './Components/teams';
-import Serializer from './Util/serializer';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Serializer from './Util/serializer';
+import Teams from './Components/teams';
 
 class App extends React.Component {
     constructor(props) {
@@ -44,6 +43,11 @@ class App extends React.Component {
             Serializer.unset('participants');
         }
         
+        window.location.reload();
+    }
+
+    resetPoints = () => {
+        Serializer.unset('points');
         window.location.reload();
     }
 
@@ -170,6 +174,7 @@ class App extends React.Component {
                         points={this.state.points}
                         next={() => this.setScreen(2)}
                         restart={() => this.reset()}
+                        resetPoints={() => this.resetPoints()}
                     />
                 );
             default:
