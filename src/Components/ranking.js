@@ -23,6 +23,7 @@ class ranking extends Component {
             );
             points[maxIndex] = Number.MIN_SAFE_INTEGER;
         }
+       
         
         return (
             <div className="ranking-bg background">
@@ -38,13 +39,13 @@ class ranking extends Component {
                         </button>
                         <small
                             className="ranking-btn-restart"
-                            onClick={this.props.restart.bind(this, true, false)}
+                            onClick={this.props.resetPoints}
                         >
                             <FontAwesomeIcon icon="redo-alt" /> Reset Points
                         </small>
                         <small
                             className="ranking-btn-restart"
-                            onClick={this.props.restart.bind(this, false, true)}
+                            onClick={this.props.restart}
                         >
                             <FontAwesomeIcon icon="redo-alt" /> Restart
                         </small>

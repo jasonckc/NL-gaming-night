@@ -19,7 +19,7 @@ class App extends React.Component {
         // Load saved state variables from cookies
         let participants = Serializer.load('participants', [], val => val.split(';'));
         let teams = Serializer.load('teams', [], val => val.split(";").map(team => team.split(":")));
-        let points = Serializer.load('points', new Array(nbteams).fill(0), val => val.split(';').map(val => parseInt(val, 10)));
+        let points = Serializer.load('points', new Array(nbteams).fill(0), val => val.split(';'));
         let screen = Serializer.load('screen', 0, val => parseInt(val, 10));
 
         // Define state
@@ -34,18 +34,20 @@ class App extends React.Component {
         };
     }
 
-    reset = (keepParticipants, keepPoints) => {
+    reset = (keepParticipants = true) => {
         Serializer.unset('teams');
+        Serializer.unset('points');
         Serializer.unset('screen');
 
-        if (keepParticipants) {
+        if (!keepParticipants) {
             Serializer.unset('participants');
         }
-
-        if (keepPoints) {
-            Serializer.unset('points');
-        }
         
+        window.location.reload();
+    }
+
+    resetPoints = () => {
+        Serializer.unset('points');
         window.location.reload();
     }
 
@@ -172,6 +174,7 @@ class App extends React.Component {
                         points={this.state.points}
                         next={() => this.setScreen(2)}
                         restart={() => this.reset()}
+                        resetPoints={() => this.resetPoints()}
                     />
                 );
             default:
