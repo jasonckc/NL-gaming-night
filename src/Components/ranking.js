@@ -33,7 +33,7 @@ class ranking extends Component {
                         <button
                             className="ranking-btn-next"
                             onClick={this.props.next}>
-                            Next
+                            Next game!
                         </button>
                         <small
                             className="ranking-btn-restart"

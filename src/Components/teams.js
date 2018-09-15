@@ -43,7 +43,7 @@ class Teams extends Component {
                         className="teams-btn-next"
                         onClick={this.props.next}
                     >
-                        Next
+                        Start!
                     </button>
                 </div>
             </div>

@@ -5,8 +5,8 @@ div.teams-bg {
 
 div.teams-wrapper {
     height: 100%;
-    width: 90%;
-    min-width: 300px;
+    width: 70%;
+    min-width: 350px;
     margin: auto;
 }
 
@@ -37,7 +37,7 @@ div.teams-team {
 div.teams-team h3 {
     padding: 10px;
     margin: 0;
-    background-color: rgb(78, 76, 219);
+    background-color: rgb(93, 91, 218);
     border-bottom: 4px solid rgb(163, 165, 250);
     border-radius: 3px 3px 0 0;
 }
@@ -45,7 +45,7 @@ div.teams-team h3 {
 div.teams-team ul {
     list-style: none;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.767);
+    background: rgba(255, 255, 255, 0.568);
     color: black;
     margin: 0;
     border: 1px solid rgb(204, 204, 204);

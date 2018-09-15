@@ -47,7 +47,7 @@ class Participants extends Component {
                         className="participants-btn-next"
                         onClick={this.props.next}
                     >
-                        Next
+                        Generate teams
                     </button>
                 </div>
             </div>

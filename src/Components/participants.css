@@ -1,11 +1,11 @@
 div.participants-bg {
-    background-color: rgb(255, 79, 79);
+    background-color: rgb(252, 110, 110);
     color: white;
 }
 
 div.participants-wrapper {
     height: 100%;
-    width: 50%;
+    width: 40%;
     min-width: 300px;
     margin: auto;
 }
@@ -19,6 +19,7 @@ ul.participants-list {
     margin: 20px 0;
     padding: 10px;
     height: 60vh;
+    max-height: 500px;
     overflow: auto;
     max-width: 100%;
     background-color: rgba(255, 255, 255, 0.5);
@@ -26,6 +27,7 @@ ul.participants-list {
     border-radius: 3px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
     border-bottom: 3px solid rgb(228, 130, 123);
+    border-top: 3px solid rgb(228, 130, 123);
 }
 
 ul.participants-list li {
@@ -48,7 +50,7 @@ button.participants-btn-remove {
 }
 
 button.participants-btn-next {
-    background-color: rgb(151, 59, 59);
-    color: white;
+    background-color: rgb(189, 163, 106);
+    color: rgb(77, 65, 41);
     width: 100%;
 }
