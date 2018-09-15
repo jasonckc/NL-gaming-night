@@ -1,6 +1,8 @@
+import React, { Component } from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
 import './ranking.css';
 
-import React, { Component } from 'react';
 
 class ranking extends Component {
     render() {
@@ -37,7 +39,7 @@ class ranking extends Component {
                             className="ranking-btn-restart"
                             onClick={this.props.restart}
                         >
-                            Restart
+                            <FontAwesomeIcon icon="redo-alt" /> Restart
                         </small>
                     </div>
                 </div>
