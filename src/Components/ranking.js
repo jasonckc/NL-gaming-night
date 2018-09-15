@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
 import './ranking.css';
 
+import React, { Component } from 'react';
+
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 class ranking extends Component {
     render() {
@@ -23,6 +23,7 @@ class ranking extends Component {
             );
             points[maxIndex] = Number.MIN_SAFE_INTEGER;
         }
+        
         return (
             <div className="ranking-bg background">
                 <div className="ranking-wrapper">
@@ -37,7 +38,13 @@ class ranking extends Component {
                         </button>
                         <small
                             className="ranking-btn-restart"
-                            onClick={this.props.restart}
+                            onClick={this.props.restart.bind(this, true, false)}
+                        >
+                            <FontAwesomeIcon icon="redo-alt" /> Reset Points
+                        </small>
+                        <small
+                            className="ranking-btn-restart"
+                            onClick={this.props.restart.bind(this, false, true)}
                         >
                             <FontAwesomeIcon icon="redo-alt" /> Restart
                         </small>

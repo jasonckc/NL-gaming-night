@@ -4,11 +4,10 @@ import './icons.js'
 import Game from './Components/game';
 import Participants from './Components/participants';
 import Ranking from './Components/ranking';
-import Teams from './Components/teams';
-import Serializer from './Util/serializer';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Serializer from './Util/serializer';
+import Teams from './Components/teams';
 
 class App extends React.Component {
     constructor(props) {
@@ -35,13 +34,16 @@ class App extends React.Component {
         };
     }
 
-    reset = (keepParticipants = true) => {
+    reset = (keepParticipants, keepPoints) => {
         Serializer.unset('teams');
-        Serializer.unset('points');
         Serializer.unset('screen');
 
-        if (!keepParticipants) {
+        if (keepParticipants) {
             Serializer.unset('participants');
+        }
+
+        if (keepPoints) {
+            Serializer.unset('points');
         }
         
         window.location.reload();
