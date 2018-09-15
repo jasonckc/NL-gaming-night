@@ -163,7 +163,7 @@ class App extends React.Component {
             case 2:
                 return (
                     <Game
-                        nbteams={this.props.nbteams}
+                        teams={this.state.teams}
                         update={(team, evt) => this.updateTeamPoints(team, evt.target.value)}
                         next={() => this.setScreen(3)}
                     />
@@ -172,6 +172,7 @@ class App extends React.Component {
                 return (
                     <Ranking
                         points={this.state.points}
+                        teams={this.state.teams}
                         next={() => this.setScreen(2)}
                         restart={() => this.reset()}
                         resetPoints={() => this.resetPoints()}
