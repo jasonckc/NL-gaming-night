@@ -47,8 +47,14 @@ class App extends React.Component {
     }
 
     resetPoints = () => {
-        Serializer.unset('points');
-        window.location.reload();
+        let nbteams = parseInt(this.props.nbteams, 10);
+        let points = new Array(nbteams).fill(0);
+        const nextState = {
+            ...this.state, 
+            points: points
+        };
+        this.setState(nextState);
+        Serializer.save('points', points.join(';'));
     }
 
     updateParticipant = (evt) => {
