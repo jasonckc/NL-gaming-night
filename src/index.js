@@ -102,7 +102,7 @@ class App extends React.Component {
     commitTeamPoints = () => {
         let nbteams = parseInt(this.props.nbteams, 10);
         let points = this.state.points.map(
-            (points, i) => points + this.state.pointsToAdd[i]
+            (points, i) => points + parseInt(this.state.pointsToAdd[i], 10)
         );
         this.setState({
             points: points,
