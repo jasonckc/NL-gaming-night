@@ -9,22 +9,36 @@ class ranking extends Component {
         for (let i = 0; i < points.length; i++) {
             let maxIndex = points.reduce((max, x, i, arr) => x > arr[max] ? i : max, 0);
             teams.push(
-                <tr key={i}>
-                    <td><h4>Team {maxIndex + 1} <span className="ranking-number-of-points"> {points[maxIndex].toString()} points </span></h4></td>
-                </tr>
+                <div className="ranking-team" key={i}>
+                    <div className="ranking-team-rank">
+                        {i + 1}
+                    </div>
+                    <div className="ranking-team-score">
+                        <h3>Team {maxIndex + 1}</h3>
+                        {points[maxIndex].toString()} points
+                    </div>
+                </div>
             );
             points[maxIndex] = Number.MIN_SAFE_INTEGER;
         }
         return (
-            <div className="background ranking-bg">
+            <div className="ranking-bg background">
                 <div className="ranking-wrapper">
                     <h1 className="ranking-title">Ranking</h1>
-                    <div className="ranking-content">
-                        <table className="ranking-table"><tbody>{teams}</tbody></table>
-                        <div className="ranking-footer">
-                            <button className="ranking-btn-next" onClick={this.props.next}>Next</button>
-                        </div>
-                        <small className="ranking-btn-restart" onClick={this.props.restart}>Restart</small>
+                    <div className="ranking-teams">
+                        {teams}
+                        <br/>
+                        <button
+                            className="ranking-btn-next"
+                            onClick={this.props.next}>
+                            Next
+                        </button>
+                        <small
+                            className="ranking-btn-restart"
+                            onClick={this.props.restart}
+                        >
+                            Restart
+                        </small>
                     </div>
                 </div>
             </div>
