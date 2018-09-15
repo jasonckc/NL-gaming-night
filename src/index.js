@@ -43,7 +43,7 @@ class App extends React.Component {
             Serializer.unset('participants');
         }
         
-        window.location.reload();
+        this.setScreen(0);
     }
 
     resetPoints = () => {
