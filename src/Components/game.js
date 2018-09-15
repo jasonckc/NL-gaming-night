@@ -7,29 +7,34 @@ class Game extends Component {
         let teams = [];
         for (let i = 0; i < this.props.nbteams; i++) {
             teams.push(
-                <tr key={i}>
-                    <td>
-                        <h4>Team {i + 1}</h4>
-                    </td>
-                    <td>
+                <div className="game-team" key={i}>
+                    <div className="game-team-name">
+                        Team {i + 1}
+                    </div>
+                    <div className="game-team-score">
                         <input
                             type="number"
-                            onChange={evt => this.props.update(i, evt)}>
-                        </input>
-                    </td>
-                </tr>
+                            onChange={evt => this.props.update(i, evt)}
+                            placeholder="Points..."
+                        ></input>
+                        <label>Points</label>
+                    </div>
+                </div>
             );
         }
         return (
             <div className="background game-bg">
                 <div className="game-wrapper">
                     <h1 className="game-title">Game</h1>
-                    <div className="game-content">
-                        <table className="game-table">
-                            <tbody>{teams}</tbody>
-                        </table>
+                    <div className="game-teams">
+                        {teams}
                     </div>
-                    <button onClick={this.props.next}>Next</button>
+                    <button
+                        className="game-btn-next"
+                        onClick={this.props.next}
+                    >
+                        Submit
+                    </button>
                 </div>
             </div>
         );

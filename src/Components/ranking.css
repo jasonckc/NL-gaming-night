@@ -1,10 +1,12 @@
 div.ranking-bg {
     background-color: rgba(119, 150, 84, 0.877);
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div.ranking-wrapper {
-    height: 100%;
     width: 70%;
     min-width: 300px;
     margin: auto;
@@ -12,6 +14,7 @@ div.ranking-wrapper {
 
 h1.ranking-title {
     text-align: center;
+    margin: 0 0 40px 0;
 }
 
 div.ranking-teams {
@@ -21,7 +24,7 @@ div.ranking-teams {
 }
 
 div.ranking-team {
-    margin: 10px;
+    margin: 20px 10px;
     color: black;
     padding: 0;
     border-radius: 5px;

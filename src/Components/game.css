@@ -1,28 +1,57 @@
 div.game-bg {
-    background-color: rgb(255, 214, 79);
-    color: white;
+    background-color: rgb(221, 200, 131);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div.game-wrapper {
-    height: 100%;
-    width: 50%;
+    width: 30%;
     min-width: 300px;
-    margin: auto;
-}
-
-div.game-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: rgba(207, 163, 68, 0.945);
-    border-radius: 5px;
-    width: 60%;
-    margin: 0 20%;
 }
 
 h1.game-title {
     text-align: center;
-    letter-spacing: 1px;
+    margin: 0;
+}
+
+div.game-teams {
+    margin: 25px 0;
+}
+
+div.game-team {
+    padding: 10px;
+}
+
+div.game-team-name {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 105%;
+    color: rgb(95, 89, 35);
+}
+
+div.game-team-score {
+    display: flex;
+}
+
+div.game-team-score input {
+    width: 100%;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.199);
+}
+
+div.game-team-score label {
+    background-color: rgb(207, 194, 74);
+    padding: 5px 10px;
+    margin-left: -3px;
+    border-bottom: 3px solid rgb(185, 174, 71);
+    border-radius: 0 3px 3px 0;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.199);
+}
+
+button.game-btn-next {
+    background-color: rgb(108, 168, 102);
+    color: white;
+    width: 100%;
 }
 

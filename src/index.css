@@ -3,6 +3,9 @@
 body, html {
     font-family: 'Work Sans', sans-serif;
     min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 div.background {
