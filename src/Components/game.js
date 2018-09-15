@@ -35,7 +35,7 @@ class Game extends Component {
             teams.push(
                 <div className="game-team" key={i}>
                     <div className="game-team-name">
-                        Team {i + 1} <FontAwesomeIcon
+                        {this.props.teamnames[i]} <FontAwesomeIcon
                             icon="info-circle"
                             onClick={() => this.setCurTeamModal(i)}
                         />

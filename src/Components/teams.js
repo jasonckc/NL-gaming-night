@@ -1,9 +1,44 @@
+import './teams.css'
+
+import Modal from './modal';
 import React, { Component } from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-import './teams.css'
-
 class Teams extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            teamToEdit: -1
+        };
+    }
+
+    handleKeyPress = (evt) => {
+        if (evt.key === 'Enter') {
+            this.props.set(this.state.teamToEdit);
+            this.setTeamToEdit(-1);
+        }
+    }
+
+    setTeamToEdit = (teamid) => {
+        this.setState({teamToEdit: teamid});
+    }
+
+    editTeamName = () => {
+        let teamid = this.state.teamToEdit;
+        return (
+            <div>
+                <h4>Change team name</h4>
+                <input
+                    type="text"
+                    onChange={evt => this.props.update(teamid, evt)}
+                    value={this.props.teamname[teamid]}
+                    onKeyPress={this.handleKeyPress}
+                    placeholder="Name..."
+                ></input>
+            </div>
+        );
+    }
+
     render() {
         let teams = this.props.teams.map(
             (members, i) => {
@@ -15,7 +50,9 @@ class Teams extends Component {
                 );
                 return (
                     <div className="teams-team" key={i}>
-                        <h3>Team {i + 1}</h3>
+                        <h3 onClick={() => this.setTeamToEdit(i)}>
+                            {this.props.teamnames[i]}
+                        </h3>
                         <ul>{membersLst}</ul>
                     </div>
                 );
@@ -24,6 +61,11 @@ class Teams extends Component {
 
         return (
             <div className="teams-bg background">
+                <Modal
+                    show={this.state.teamToEdit >= 0}
+                    onSetContent={() => this.editTeamName()}
+                    onClose={() => this.setTeamToEdit(-1)}
+                />
                 <div className="teams-wrapper">
                     <h1 className="teams-title">Teams</h1>
                     <div className="teams-teams">{teams}</div>

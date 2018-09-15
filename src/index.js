@@ -18,6 +18,7 @@ class App extends React.Component {
 
         // Load saved state variables from cookies
         let participants = Serializer.load('participants', [], val => val.split(';'));
+        let teamnames = Serializer.load('teamnames', new Array(nbteams).fill("").map((val, i) => "Team " + (i + 1)), val => val.split(';'));
         let teams = Serializer.load('teams', [], val => val.split(";").map(team => team.split(":")));
         let points = Serializer.load('points', new Array(nbteams).fill(0), val => val.split(';').map(val => parseInt(val, 10)));
         let screen = Serializer.load('screen', 0, val => parseInt(val, 10));
@@ -26,16 +27,19 @@ class App extends React.Component {
         this.state = {
             participants: participants,
             teams: teams,
+            teamnames: teamnames,
             points: points,
             screen: screen,
 
             participant: '',
+            teamname: teamnames.slice(),
             pointsToAdd: new Array(nbteams).fill(0),
         };
     }
 
     reset = (keepParticipants = true) => {
         Serializer.unset('teams');
+        Serializer.unset('teamnames');
         Serializer.unset('points');
         Serializer.unset('screen');
 
@@ -43,7 +47,7 @@ class App extends React.Component {
             Serializer.unset('participants');
         }
         
-        this.setScreen(0);
+        window.location.reload(false);
     }
 
     resetPoints = () => {
@@ -101,6 +105,27 @@ class App extends React.Component {
 
         this.setState({teams: teams});
         Serializer.save('teams', teams.map(team => team.join(':')).join(';'));
+    }
+
+    updateTeamName = (team, evt) => {
+        console.log(team);
+        let teamname = this.state.teamname.slice();
+        teamname[team] = evt.target.value;
+        const nextState = {
+            ...this.state, 
+            teamname: teamname
+        };
+        this.setState(nextState);
+    }
+
+    setTeamName = (team) => {
+        let name = this.state.teamname[team];
+        if (name !== undefined && name !== "") {
+            let teamnames = this.state.teamnames.slice();
+            teamnames[team] = this.state.teamname[team];
+            this.setState({teamnames: teamnames});
+            Serializer.save('teamnames', teamnames.join(';'));
+        }
     }
 
     updateTeamPoints = (team, points) => {
@@ -161,15 +186,20 @@ class App extends React.Component {
                 return (
                     <Teams
                         teams={this.state.teams}
+                        teamnames={this.state.teamnames}
+                        teamname={this.state.teamname}
                         refresh={() => this.makeTeams()}
                         back={() => this.setScreen(0)}
                         next={() => this.setScreen(2)}
+                        update={(team, evt) => this.updateTeamName(team, evt)}
+                        set={(team) => this.setTeamName(team)}
                     />
                 );
             case 2:
                 return (
                     <Game
                         teams={this.state.teams}
+                        teamnames={this.state.teamnames}
                         update={(team, evt) => this.updateTeamPoints(team, evt.target.value)}
                         next={() => this.setScreen(3)}
                     />
@@ -179,6 +209,7 @@ class App extends React.Component {
                     <Ranking
                         points={this.state.points}
                         teams={this.state.teams}
+                        teamnames={this.state.teamnames}
                         next={() => this.setScreen(2)}
                         restart={() => this.reset()}
                         resetPoints={() => this.resetPoints()}

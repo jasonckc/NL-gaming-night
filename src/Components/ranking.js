@@ -40,7 +40,7 @@ class ranking extends Component {
                         {i + 1}
                     </div>
                     <div className="ranking-team-score">
-                        <h3>Team {maxIndex + 1} <FontAwesomeIcon
+                        <h3>{this.props.teamnames[maxIndex]} <FontAwesomeIcon
                             icon="info-circle"
                             onClick={() => this.setCurTeamModal(i)}
                         /></h3>
