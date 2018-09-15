@@ -1,0 +1,81 @@
+div.ranking-bg {
+    background-color: rgba(186, 223, 128, 0.877);
+    color: rgb(255, 255, 255);
+}
+
+div.ranking-wrapper {
+    height: 100%;
+    width: 100%;
+    min-width: 300px;
+    margin: auto;
+}
+
+div.ranking-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(148, 180, 43, 0.945);
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 20%;
+}
+
+h1.ranking-title {
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+table.ranking-table {
+    width: 60%;
+    margin: 0 30%;
+    padding: 40px; 
+}
+
+table.ranking-table tr {
+    border-bottom: 1px solid #000;
+}
+
+
+table.ranking-table tr td {
+    padding: 4px 18px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    border-bottom: 1px solid rgb(116, 116, 116);
+}
+
+table.ranking-table tr td:hover{
+    background-color: rgb(247, 252, 240);
+    color: #000;
+    border-radius: 12px;
+}
+
+span.ranking-number-of-points {
+    padding-left: 20vw;
+}
+
+div.ranking-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 40px 0;
+}
+
+
+button.ranking-btn-next {
+    background-color: rgba(99, 28, 28, 0.685);
+    color: white;
+    width: 60%;
+    padding: 10px 0;
+}
+
+small.ranking-btn-restart {
+    align-self: flex-end;
+    margin: 10px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
