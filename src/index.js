@@ -20,7 +20,7 @@ class App extends React.Component {
         // Load saved state variables from cookies
         let participants = Serializer.load('participants', [], val => val.split(';'));
         let teams = Serializer.load('teams', [], val => val.split(";").map(team => team.split(":")));
-        let points = Serializer.load('points', new Array(nbteams).fill(0), val => val.split(';'));
+        let points = Serializer.load('points', new Array(nbteams).fill(0), val => val.split(';').map(val => parseInt(val, 10)));
         let screen = Serializer.load('screen', 0, val => parseInt(val, 10));
 
         // Define state
