@@ -37,14 +37,16 @@ div.game-team-score {
 
 div.game-team-score input {
     width: 100%;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.199);
 }
 
 div.game-team-score label {
     background-color: rgb(207, 194, 74);
     padding: 5px 10px;
     margin-left: -3px;
-    border-bottom: 3px solid rgb(161, 151, 61);
+    border-bottom: 3px solid rgb(185, 174, 71);
     border-radius: 0 3px 3px 0;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.199);
 }
 
 button.game-btn-next {
