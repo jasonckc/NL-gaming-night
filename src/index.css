@@ -35,7 +35,7 @@ button {
     font-size: inherit;
     border-radius: 3px;
     border: none;
-    border-bottom: 2px solid rgba(0,0,0, 0.25);
+    border-bottom: 3px solid rgba(0,0,0, 0.25);
     outline: none;
     cursor: pointer;
     font-weight: bold;
@@ -43,5 +43,5 @@ button {
 
 button:hover {
     transform: translateY(1px);
-    border-bottom-width: 1px;
+    border-bottom-width: 2px;
 }
